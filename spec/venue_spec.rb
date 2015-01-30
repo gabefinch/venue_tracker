@@ -11,12 +11,12 @@ describe (Venue) do
 
   it("capitalizes all words in the name") do
     test_venue = Venue.create({:name => "x-ray cafe"})
-    expect(recipe.name()).to(eq("X-ray Cafe"))
+    expect(test_venue.name()).to(eq("X-ray Cafe"))
   end
 
-  it("capitalizes all words in the location") do
-    test_venue = Venue.create({:name => "X-ray Cafe", :location => "1234 w. burnside st."})
-    expect(recipe.location()).to(eq("1234 W. Burnside St."))
+  it("capitalizes all words in the address") do
+    test_venue = Venue.create({:name => "X-ray Cafe", :address => "1234 w. burnside st."})
+    expect(test_venue.address()).to(eq("1234 W. Burnside St."))
   end
 
   describe('.five_star') do

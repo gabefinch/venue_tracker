@@ -13,4 +13,9 @@ describe (Band) do
     expect(test_band.name()).to(eq("Solar Motel"))
   end
 
+  it("succesfully stores an already capitalized name") do
+    test_band = Band.create({:name => "Television"})
+    expect(test_band.name()).to(eq("Television"))
+  end
+
 end
