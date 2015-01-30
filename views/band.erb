@@ -1,0 +1,20 @@
+<div>
+  <h1 class="page-header"><%= @band.name() %></h1>
+  <% if @band.style() != nil %>
+    <h5>Musical Style: <%= @band.style() %></h5>
+  <% end %>
+  <% if @band.hometown() != nil %>
+    <h5>Originated in: <%= @band.hometown() %></h5>
+  <% end %>
+  <% if @band.venues.length != 0 %>
+    <h5>Previous shows: </h5>
+    <ul>
+      <% @band.venues.each() do |venue| %>
+        <li><h5><%= venue.name() %></h5></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <a href="/bands/<%= @band.id() %>/update" class="btn btn-danger">Update <%= @band.name() %></a>
+  <br><br>
+</div>
+<a href="/bands" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left">Back</span></a>

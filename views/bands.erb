@@ -1,23 +1,40 @@
-<% if @bands.any? %>
-  <h2 class="text-center">Bands/Musicians:</h2>
-  <ul class="list-unstyled text-center">
-    <% @bands.each() do |band| %>
-      <li class="text-center"><a href="/bands/<%= band.id() %>"><h2><%= band.name() %></h2></a></li>
-    <% end %>
-  </ul>
-<% else %>
-  <h2 class="text-center">Enter a band to get started:</h2>
-<% end %>
-
 <div class="row">
-  <div class="col-sm-3"></div>
   <div class="col-sm-6">
+    <% if @bands == nil || @bands.length() == 0 %>
+        <h3 class=>Enter a band:</h3>
+    <% else %>
+      <h3>Bands/Musicians:</h3>
+      <ul class="list-unstyled">
+        <% @bands.each() do |band| %>
+          <li><a href="/bands/<%= band.id() %>"><h3><%= band.name() %></h3></a></li>
+        <% end %>
+      </ul>
+    <% end %>
     <form action="/bands" method="post" class="form-group">
-      <input type="text" name="name" placeholder="Enter Band/Musician Name" class="form-control" autofocus>
+      <input type="text" name="name" placeholder="Enter A New Band/Musician Name" class="form-control" autofocus>
       <br>
       <button type="submit" class="btn btn-success">Add Band</button>
       <button type="reset" class="btn btn-danger">Reset</button>
     </form>
   </div>
-  <div class="col-sm-3"></div>
+  <div class="col-sm-1">
+  </div>
+  <div class="col-sm-5">
+    <% if @venues == nil || @venues.length() == 0 %>
+      <h3 class=>Enter a venue:</h3>
+    <% else %>
+      <h3>Venues:</h3>
+      <ul class="list-unstyled">
+        <% @venues.each() do |venue| %>
+          <li><a href="/venues/<%= venue.id() %>"><h3><%= venue.name() %></h3></a></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <form action="/venues" method="post" class="form-group">
+      <input type="text" name="name" placeholder="Enter A New Venue Name" class="form-control">
+      <br>
+      <button type="submit" class="btn btn-success">Add Venue</button>
+      <button type="reset" class="btn btn-danger">Reset</button>
+    </form>
+  </div>
 </div>

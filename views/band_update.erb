@@ -1,0 +1,25 @@
+
+<form action="/bands/<%= @band.id() %>" method="post" class="form-group">
+    <input type="hidden" name="_method" value="patch">
+    <label for="name">Band/Musician Name</label>
+    <input type="text" name="name" value="<%= @band.name() %>" class="form-control">
+    <label for="style">Musical Style</label>
+    <input type="text" name="style" value="<%= @band.style() %>" class="form-control">
+    <label for="hometown">Hometown</label>
+    <input type="text" name="hometown" value="<%= @band.hometown() %>" class="form-control">
+    <% if (@venues.length() != 0) & (@venues != nil) %>
+      <br><label for="venues[]">Add Appearances</label><br>
+      <% @venues.each() do |venue| %>
+          <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"><%= venue.name() %>
+          <br>
+      <% end %>
+    <% end %>
+    <br><br>
+    <button type="submit" class="btn btn-success">Make Changes</button>
+</form>
+<form action="/bands/<%= @band.id() %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="btn btn-danger">Delete Band/Musician</button>
+</form>
+<br>
+<a href="/bands/<%= @band.id() %>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left">Back</span></a>
