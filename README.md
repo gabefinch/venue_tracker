@@ -8,7 +8,7 @@ Venue Tracker keeps track of your favorite bands and lets you track what venues 
 Installation
 ------------
 
-Install Expense Organizer by first cloning the repository.  
+Install Venue Tracker by first cloning the repository.  
 ```
 $ git clone http://github.com/gabefinch/venue_tracker.git
 ```
